@@ -1,0 +1,37 @@
+<view class="page {{_isDark ? 'dark' : ''}}">
+  <view class="settings-group section">
+    <view class="setting-item" catchtap="onManageTags">
+      <view class="setting-left">
+        <text class="setting-icon icon-tag">#</text>
+        <text>标签管理</text>
+      </view>
+      <text class="setting-arrow">→</text>
+    </view>
+    <view class="setting-item" catchtap="onSubscribeMessage">
+      <view class="setting-left">
+        <text class="setting-icon icon-bell">♪</text>
+        <text>订阅消息提醒</text>
+      </view>
+      <text class="setting-arrow">→</text>
+    </view>
+    <view class="setting-item">
+      <view class="setting-left">
+        <text class="setting-icon icon-theme">◎</text>
+        <text>主题</text>
+      </view>
+      <picker mode="selector" range="{{themeOptions}}" value="{{themeIndex}}" bindchange="onThemeChange">
+        <text class="setting-value">{{themeOptions[themeIndex]}}</text>
+      </picker>
+    </view>
+  </view>
+
+  <view class="settings-group section">
+    <view class="setting-item">
+      <view class="setting-left">
+        <text class="setting-icon icon-info">i</text>
+        <text>版本</text>
+      </view>
+      <text class="setting-value">v1.0.0</text>
+    </view>
+  </view>
+</view>

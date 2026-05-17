@@ -1,0 +1,56 @@
+<view class="page {{_isDark ? 'dark' : ''}}">
+  <view class="form-wrap">
+    <view class="form section">
+      <!-- Title -->
+      <view class="form-group">
+        <text class="form-label">标题</text>
+        <input class="form-input" placeholder="输入提醒内容" value="{{title}}" bindinput="onTitleInput" />
+      </view>
+
+      <!-- Date -->
+      <view class="form-group">
+        <text class="form-label">日期</text>
+        <picker mode="date" value="{{date}}" bindchange="onDateChange">
+          <view class="form-picker">{{date}}</view>
+        </picker>
+      </view>
+
+      <!-- Time -->
+      <view class="form-group">
+        <text class="form-label">时间</text>
+        <picker mode="multiSelector" range="{{timeColumns}}" value="{{timeIndex}}" bindchange="onTimeChange">
+          <view class="form-picker">{{timeDisplay}}</view>
+        </picker>
+      </view>
+
+      <!-- Repeat -->
+      <view class="form-group">
+        <text class="form-label">重复</text>
+        <picker mode="selector" range="{{repeatOptions}}" value="{{repeatIndex}}" bindchange="onRepeatChange">
+          <view class="form-picker">{{repeatOptions[repeatIndex]}}</view>
+        </picker>
+      </view>
+
+      <!-- Tag -->
+      <view class="form-group">
+        <text class="form-label">标签</text>
+        <picker mode="selector" range="{{tagNames}}" value="{{tagIndex}}" bindchange="onTagChange">
+          <view class="form-picker {{tagIndex === 0 && !isEdit ? 'placeholder' : ''}}">{{tagNames[tagIndex] || '选择标签'}}</view>
+        </picker>
+        <text class="tag-manage-link" catchtap="onManageTags">管理标签</text>
+      </view>
+
+      <!-- Note -->
+      <view class="form-group">
+        <text class="form-label">备注</text>
+        <textarea class="form-textarea" placeholder="添加备注..." value="{{note}}" bindinput="onNoteInput" />
+      </view>
+
+      <!-- Actions (inside section for consistent background) -->
+      <view class="form-actions">
+        <button class="btn-primary save-btn" catchtap="onSave">保存</button>
+        <button class="delete-btn" wx:if="{{isEdit}}" catchtap="onDelete">删除此提醒</button>
+      </view>
+    </view>
+  </view>
+</view>

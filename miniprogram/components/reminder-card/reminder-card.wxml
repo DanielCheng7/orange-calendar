@@ -1,0 +1,20 @@
+<view class="card" catchtap="onTap">
+  <view class="tag-bar" style="background: {{tagColor || '#D4834A'}}"></view>
+  <view class="content">
+    <view class="title-row">
+      <text class="title {{item.done ? 'done' : ''}}">{{item.title}}</text>
+      <text class="time">{{item.time || '全天'}}</text>
+    </view>
+    <view class="meta-row">
+      <text class="tag-label" style="color: {{tagColor || '#D4834A'}}">#{{tagName || '默认'}}</text>
+      <text class="repeat-badge" wx:if="{{item.repeat && item.repeat !== 'none'}}">
+        {{repeatLabel(item.repeat)}}
+      </text>
+    </view>
+  </view>
+  <view class="check-area" catchtap="onToggleDone" data-id="{{item._id}}">
+    <text class="check-icon {{item.done ? 'checked' : ''}}">
+      {{item.done ? '✓' : '○'}}
+    </text>
+  </view>
+</view>

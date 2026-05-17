@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "calendar-grid": "/components/calendar-grid/calendar-grid"
+  },
+  "navigationBarTitleText": "日历提醒"
+}

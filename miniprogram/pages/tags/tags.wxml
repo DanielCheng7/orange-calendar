@@ -1,0 +1,27 @@
+<view class="page {{_isDark ? 'dark' : ''}}">
+  <view class="tag-list section">
+    <view class="tag-item" wx:for="{{tags}}" wx:key="_id">
+      <view class="tag-left">
+        <view class="tag-color {{pickingTagId === item._id ? 'picking' : ''}}" style="background: {{item.color}}" catchtap="onToggleColorPicker" data-id="{{item._id}}"></view>
+        <text class="tag-name {{item.builtIn ? '' : 'can-rename'}}" catchtap="onRenameTag" data-id="{{item._id}}" data-name="{{item.name}}">{{item.name}}</text>
+      </view>
+      <view class="tag-delete" wx:if="{{!item.builtIn}}" catchtap="onDeleteTag" data-id="{{item._id}}"><text>×</text></view>
+    </view>
+
+    <!-- Color picker panel -->
+    <view class="color-picker" wx:if="{{pickingTagId}}">
+      <view
+        class="picker-dot"
+        wx:for="{{presetColors}}"
+        wx:key="index"
+        style="background: {{item}}"
+        catchtap="onPickColor"
+        data-color="{{item}}"
+      ></view>
+    </view>
+
+    <view class="add-tag-area">
+      <button class="add-tag-btn" catchtap="onAddTag">+ 添加标签</button>
+    </view>
+  </view>
+</view>

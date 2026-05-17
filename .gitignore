@@ -1,0 +1,18 @@
+# WeChat
+miniprogram/images/*
+!miniprogram/images/.gitkeep
+
+# IDE
+.project
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Superpowers visual companion
+.superpowers/

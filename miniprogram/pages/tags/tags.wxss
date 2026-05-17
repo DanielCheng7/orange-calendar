@@ -1,0 +1,137 @@
+.page {
+  min-height: 100vh;
+}
+
+.tag-list {
+  padding: var(--spacing-md) var(--spacing-xl);
+  margin: var(--spacing-lg);
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1rpx solid var(--color-divider);
+  transition: background var(--transition-fast);
+  border-radius: var(--radius-sm);
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
+
+.tag-item:active {
+  background: var(--color-divider);
+}
+
+.tag-item:last-child {
+  border-bottom: none;
+}
+
+.tag-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.tag-color {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  margin-right: var(--spacing-lg);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.tag-color:active {
+  transform: scale(1.15);
+}
+
+.tag-color.picking {
+  box-shadow: 0 0 0 4rpx var(--color-surface), 0 0 0 6rpx var(--color-primary);
+}
+
+.tag-name {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  flex: 1;
+  padding: 6rpx 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.tag-name.can-rename {
+  border-bottom: 2rpx dashed var(--color-border);
+}
+
+.tag-delete {
+  color: var(--color-text-tertiary);
+  padding: var(--spacing-md);
+  font-size: 28rpx;
+  flex-shrink: 0;
+  margin-left: var(--spacing-sm);
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.tag-delete:active {
+  background: #FEF2F2;
+  color: var(--color-danger);
+}
+
+.page.dark .tag-delete:active {
+  background: #3D1A1A;
+}
+
+/* Color picker */
+.color-picker {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-md) 64rpx;
+  flex-wrap: wrap;
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.picker-dot {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.picker-dot:active {
+  transform: scale(1.2);
+}
+
+/* Add button area */
+.add-tag-area {
+  padding: var(--spacing-lg) 0 0;
+  margin-top: var(--spacing-lg);
+  border-top: 1rpx solid var(--color-divider);
+}
+
+.add-tag-btn {
+  width: 100%;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 2rpx dashed var(--color-primary);
+  border-radius: var(--radius-full);
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast);
+}
+
+.add-tag-btn:active {
+  background: var(--color-primary-light);
+}
+
+.add-tag-btn::after {
+  border: none;
+}

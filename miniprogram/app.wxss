@@ -1,0 +1,237 @@
+/* ====================================
+   UI Design System — 日历提醒
+   Based on UI/UX Pro Max guidelines
+   ==================================== */
+
+/* ---------- Design Tokens ---------- */
+page {
+  /* Colors - Primary (Warm Amber) */
+  --color-primary: #D4834A;
+  --color-primary-light: #FDF0E6;
+  --color-primary-dark: #BA6A33;
+
+  /* Colors - Surface & Background */
+  --color-bg: #F8F6F3;
+  --color-surface: #FFFFFF;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Colors - Text */
+  --color-text: #2D2A26;
+  --color-text-secondary: #7A726B;
+  --color-text-tertiary: #A69E97;
+  --color-text-placeholder: #CEC7C0;
+
+  /* Colors - Border & Divider */
+  --color-border: #E6E0DA;
+  --color-divider: #F0EBE6;
+
+  /* Colors - Semantic */
+  --color-danger: #D65C5C;
+  --color-success: #5BAF5B;
+  --color-warning: #D4A04C;
+  --color-dot: #D65C5C;
+
+  /* Colors - Misc */
+  --color-today-bg: var(--color-primary);
+  --color-selected-bg: var(--color-primary-light);
+  --color-checked: var(--color-success);
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-size-xs: 22rpx;
+  --font-size-sm: 24rpx;
+  --font-size-base: 28rpx;
+  --font-size-lg: 30rpx;
+  --font-size-xl: 34rpx;
+  --font-size-2xl: 40rpx;
+  --font-size-3xl: 48rpx;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height: 1.5;
+
+  /* Spacing (4rpx base) */
+  --spacing-xs: 8rpx;
+  --spacing-sm: 12rpx;
+  --spacing-md: 16rpx;
+  --spacing-lg: 20rpx;
+  --spacing-xl: 24rpx;
+  --spacing-2xl: 32rpx;
+  --spacing-3xl: 40rpx;
+
+  /* Border Radius */
+  --radius-sm: 8rpx;
+  --radius-md: 12rpx;
+  --radius-lg: 16rpx;
+  --radius-xl: 24rpx;
+  --radius-full: 999rpx;
+
+  /* Shadows */
+  --shadow-sm: 0 1rpx 3rpx rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8rpx 24rpx rgba(0, 0, 0, 0.07);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+
+  /* Apply globally */
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height);
+}
+
+view {
+  box-sizing: border-box;
+}
+
+/* Page wrapper — apply background so it overrides native page bg */
+.page {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Utility Classes ---------- */
+
+/* Card surface */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Primary button */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  height: 88rpx;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+/* Outline button */
+.btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 2rpx solid var(--color-primary);
+  border-radius: var(--radius-full);
+  height: 88rpx;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-outline:active {
+  background: var(--color-primary-light);
+}
+
+.btn-outline::after {
+  border: none;
+}
+
+/* Danger button */
+.btn-danger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-danger);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  height: 80rpx;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.btn-danger:active {
+  opacity: 0.85;
+}
+
+.btn-danger::after {
+  border: none;
+}
+
+.btn-danger[disabled] {
+  opacity: 0.45;
+}
+
+/* Press feedback for interactive items */
+.pressable:active {
+  opacity: 0.7;
+}
+
+/* Section container */
+.section {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  margin: 0 var(--spacing-lg);
+  overflow: hidden;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60rpx 0;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-base);
+}
+
+/* ====================================
+   Dark Mode Overrides
+   ==================================== */
+.page.dark {
+  --color-bg: #141210;
+  --color-surface: #1E1B18;
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
+  --color-text: #EDE8E3;
+  --color-text-secondary: #B8B0A8;
+  --color-text-tertiary: #8A827A;
+  --color-text-placeholder: #4A443E;
+
+  --color-border: #2D2824;
+  --color-divider: #262220;
+
+  --color-primary: #E8A06A;
+  --color-primary-light: #2D1F14;
+  --color-primary-dark: #D4834A;
+  --color-selected-bg: #2D1F14;
+
+  --color-danger: #F0756A;
+  --color-success: #6DBF6D;
+  --color-warning: #D4A04C;
+
+  --shadow-sm: 0 1rpx 3rpx rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4rpx 12rpx rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8rpx 24rpx rgba(0, 0, 0, 0.45);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}

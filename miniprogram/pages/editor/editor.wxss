@@ -1,0 +1,119 @@
+.page {
+  min-height: 100vh;
+}
+
+.form-wrap {
+  padding: var(--spacing-lg);
+}
+
+.form {
+  padding: var(--spacing-2xl);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-input,
+.form-picker {
+  border: 2rpx solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0 var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: var(--color-bg);
+  transition: border-color var(--transition-fast);
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+}
+
+.form-picker:active {
+  border-color: var(--color-primary);
+}
+
+.form-picker.placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.form-textarea {
+  border: 2rpx solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  width: 100%;
+  min-height: 160rpx;
+  background: var(--color-bg);
+  transition: border-color var(--transition-fast);
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+.form-textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.tag-manage-link {
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-xs) 0;
+  transition: color var(--transition-fast);
+}
+
+.tag-manage-link:active {
+  color: var(--color-primary);
+}
+
+/* Actions inside section */
+.form-actions {
+  padding-top: var(--spacing-lg);
+  border-top: 1rpx solid var(--color-divider);
+  margin-top: var(--spacing-sm);
+}
+
+.save-btn {
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+}
+
+.delete-btn {
+  width: 100%;
+  background: var(--color-surface);
+  color: var(--color-danger);
+  border: 2rpx solid var(--color-danger);
+  border-radius: var(--radius-full);
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  transition: background var(--transition-fast);
+}
+
+.delete-btn:active {
+  background: #FEF2F2;
+}
+
+.page.dark .delete-btn:active {
+  background: #3D1A1A;
+}
+
+.delete-btn::after {
+  border: none;
+}

@@ -1,0 +1,371 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* ---------- Month Navigation ---------- */
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  gap: 48rpx;
+}
+
+.nav-arrow {
+  font-size: 32rpx;
+  color: var(--color-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-fast);
+}
+
+.nav-arrow:active {
+  background: var(--color-primary-light);
+}
+
+.month-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  min-width: 220rpx;
+  text-align: center;
+}
+
+/* ---------- Action Button ---------- */
+.actions {
+  padding: 0 var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.add-btn {
+  gap: 8rpx;
+}
+
+.add-icon {
+  font-size: 36rpx;
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+/* ---------- Day Preview ---------- */
+.day-preview {
+  padding: var(--spacing-xl);
+  margin-bottom: 40rpx;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.preview-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+/* ---------- Tab Bar ---------- */
+.preview-tab-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.tab-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.tab-arrow {
+  font-size: 28rpx;
+  color: var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.tab-arrow:active {
+  background: var(--color-primary-light);
+}
+
+.tab-item {
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-xs) 0;
+  transition: color var(--transition-fast);
+}
+
+.tab-item.tab-active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tab-divider {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-placeholder);
+}
+
+/* ---------- Note Inline Editor ---------- */
+.preview-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-placeholder);
+}
+
+.note-editor {
+  display: flex;
+  margin-top: var(--spacing-sm);
+  min-height: 200rpx;
+  align-items: flex-start;
+}
+
+.note-lines {
+  width: 56rpx;
+  flex-shrink: 0;
+  text-align: right;
+  padding-right: var(--spacing-md);
+  border-right: 1rpx solid var(--color-divider);
+  margin-right: var(--spacing-md);
+}
+
+.note-line-num {
+  display: block;
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  line-height: 56rpx;
+  height: 56rpx;
+}
+
+.note-textarea {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--color-text);
+  line-height: 56rpx;
+  background: transparent;
+  border: none;
+  min-height: 200rpx;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+.note-textarea-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  min-height: 200rpx;
+}
+
+.note-empty-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-base);
+  color: var(--color-text-placeholder);
+  pointer-events: none;
+}
+
+.preview-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.preview-btn {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.preview-btn:active {
+  background: var(--color-primary-light);
+}
+
+.preview-cancel {
+  color: var(--color-text-secondary);
+}
+
+.preview-arrow {
+  font-size: 28rpx;
+  color: var(--color-primary);
+  margin-left: -8rpx;
+}
+
+/* ---------- Empty State ---------- */
+.preview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-3xl) 0;
+}
+
+.empty-icon {
+  font-size: 56rpx;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.6;
+}
+
+.empty-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.empty-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-placeholder);
+}
+
+/* ---------- Preview List ---------- */
+.preview-list {
+  margin-top: var(--spacing-xs);
+}
+
+.preview-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1rpx solid var(--color-divider);
+  transition: background var(--transition-fast);
+  border-radius: var(--radius-sm);
+  margin: 0 -8rpx;
+  padding: var(--spacing-md) var(--spacing-sm);
+}
+
+.preview-item:active {
+  background: var(--color-divider);
+}
+
+.preview-item:last-child {
+  border-bottom: none;
+}
+
+.preview-item-selectable {
+  padding-left: 0;
+}
+
+.preview-item-done .preview-time {
+  color: var(--color-text-placeholder);
+}
+
+.preview-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+/* Checkbox in select mode */
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.checkbox-checked {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.checkbox-icon {
+  color: #fff;
+  font-size: 22rpx;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Done button */
+.done-btn {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
+  background: var(--color-surface);
+  transition: all var(--transition-fast);
+}
+
+.done-btn:active {
+  transform: scale(0.9);
+}
+
+.done-btn-checked {
+  background: var(--color-surface);
+}
+
+.done-btn-icon {
+  font-size: 22rpx;
+  font-weight: var(--font-weight-bold);
+}
+
+.preview-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview-text-done {
+  text-decoration: line-through;
+  color: var(--color-text-tertiary);
+}
+
+.preview-tag {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.7;
+}
+
+.preview-time {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  margin-left: var(--spacing-md);
+}
+
+/* ---------- Selection Bar ---------- */
+.preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
+  border-top: 1rpx solid var(--color-divider);
+}
+
+.preview-bar-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}

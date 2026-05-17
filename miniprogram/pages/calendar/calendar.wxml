@@ -1,0 +1,114 @@
+<view class="page {{_isDark ? 'dark' : ''}}">
+  <view class="month-nav">
+    <text class="nav-arrow" catchtap="onPrevMonth">〈</text>
+    <text class="month-title">{{year}}年{{month}}月</text>
+    <text class="nav-arrow" catchtap="onNextMonth">〉</text>
+  </view>
+
+  <calendar-grid
+    grid="{{grid}}"
+    weekDays="{{weekDays}}"
+    selectedDate="{{selectedDate}}"
+    bind:daytap="onDayTap"
+  />
+
+  <view class="actions">
+    <button class="btn-primary add-btn" catchtap="onAddReminder">
+      <text class="add-icon">+</text>
+      <text>新建提醒</text>
+    </button>
+  </view>
+
+  <view class="day-preview section" wx:if="{{selectedDate}}">
+    <!-- Tab Bar -->
+    <view class="preview-tab-bar">
+      <text class="tab-arrow" catchtap="onSwitchTab" data-tab="{{previewTab === 0 ? 1 : 0}}">〈</text>
+      <view class="tab-inner">
+        <text class="tab-item {{previewTab === 0 ? 'tab-active' : ''}}" catchtap="onSwitchTab" data-tab="0">今日提醒</text>
+        <text class="tab-divider">|</text>
+        <text class="tab-item {{previewTab === 1 ? 'tab-active' : ''}}" catchtap="onSwitchTab" data-tab="1">今日备注</text>
+      </view>
+      <text class="tab-arrow" catchtap="onSwitchTab" data-tab="{{previewTab === 0 ? 1 : 0}}">〉</text>
+    </view>
+
+    <!-- Reminders Tab -->
+    <block wx:if="{{previewTab === 0}}">
+      <view class="preview-header">
+        <text class="preview-title">{{selectedDateDisplay}}</text>
+        <view class="preview-actions">
+          <block wx:if="{{selectMode}}">
+            <text class="preview-btn preview-cancel" catchtap="onCancelSelect">取消</text>
+          </block>
+          <block wx:else>
+            <text class="preview-btn" catchtap="onToggleSelectMode">选择</text>
+            <text class="preview-btn preview-more" catchtap="onViewDay">查看全部</text>
+            <text class="preview-arrow">→</text>
+          </block>
+        </view>
+      </view>
+
+      <view class="preview-empty" wx:if="{{dayReminders.length === 0}}">
+        <view class="empty-icon">
+          <text>📋</text>
+        </view>
+        <text class="empty-text">这天还没有提醒</text>
+        <text class="empty-hint">点击上方按钮创建一个吧</text>
+      </view>
+
+      <view class="preview-list" wx:else>
+        <view
+          class="preview-item {{selectMode ? 'preview-item-selectable' : ''}} {{item.done ? 'preview-item-done' : ''}}"
+          wx:for="{{dayReminders}}"
+          wx:key="_id"
+          catchtap="{{selectMode ? 'onToggleSelect' : 'onEditReminder'}}"
+          data-id="{{item._id}}"
+        >
+          <block wx:if="{{selectMode}}">
+            <view class="checkbox {{item._selected ? 'checkbox-checked' : ''}}">
+              <text wx:if="{{item._selected}}" class="checkbox-icon">✓</text>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="done-btn {{item.done ? 'done-btn-checked' : ''}}" catchtap="onToggleDone" data-id="{{item._id}}" style="border-color: {{item._tagColor || '#D4834A'}}">
+              <text wx:if="{{item.done}}" class="done-btn-icon" style="color: {{item._tagColor || '#D4834A'}}">✓</text>
+            </view>
+          </block>
+          <view class="preview-content">
+            <text class="preview-text {{item.done ? 'preview-text-done' : ''}}">{{item.title}}</text>
+            <text class="preview-tag" wx:if="{{item._tagName}}" style="color: {{item._tagColor || '#D4834A'}}">#{{item._tagName}}</text>
+          </view>
+          <text class="preview-time">{{item.time || '全天'}}</text>
+        </view>
+      </view>
+
+      <view class="preview-bar" wx:if="{{selectMode}}">
+        <text class="preview-bar-count">已选 {{selectedIds.length}} 项</text>
+        <button class="btn-danger" disabled="{{selectedIds.length === 0}}" catchtap="onDeleteSelected">删除选中</button>
+      </view>
+    </block>
+
+    <!-- Notes Tab -->
+    <block wx:elif="{{previewTab === 1}}">
+      <view class="preview-header">
+        <text class="preview-title">{{selectedDateDisplay}}</text>
+        <text class="preview-hint">直接输入备注</text>
+      </view>
+
+      <view class="note-editor">
+        <view class="note-lines">
+          <text wx:for="{{noteLines}}" wx:key="*this" class="note-line-num">{{item}}</text>
+        </view>
+        <view class="note-textarea-wrap">
+          <view wx:if="{{!dayNote}}" class="note-empty-hint">写下今日的备注吧！</view>
+          <textarea
+            class="note-textarea"
+            value="{{dayNote}}"
+            bindinput="onNoteInput"
+            auto-height
+            show-confirm-bar="{{false}}"
+          ></textarea>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,105 @@
+.page {
+  min-height: 100vh;
+}
+
+.settings-group {
+  margin: var(--spacing-lg);
+}
+
+.settings-group:first-child {
+  margin-top: var(--spacing-xl);
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xl) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  border-bottom: 1rpx solid var(--color-divider);
+  transition: background var(--transition-fast);
+}
+
+.setting-item:active {
+  background: var(--color-divider);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* Icon style - small circular badge for settings icons */
+.setting-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 48rpx;
+}
+
+.icon-tag {
+  background: #FDF0E6;
+  color: var(--color-primary);
+}
+
+.icon-bell {
+  background: #FFF3E0;
+  color: #C28F4C;
+  font-size: 28rpx;
+}
+
+.icon-theme {
+  background: #F3E8FF;
+  color: #A58AD9;
+  font-size: 28rpx;
+}
+
+.icon-info {
+  background: #E8E6E3;
+  color: #8A827A;
+  font-size: 26rpx;
+  font-style: italic;
+}
+
+.setting-value {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-base);
+}
+
+.setting-arrow {
+  color: var(--color-text-placeholder);
+  font-size: var(--font-size-base);
+}
+
+/* Dark mode overrides */
+.page.dark .icon-tag {
+  background: #2D1F14;
+  color: #E8A06A;
+}
+
+.page.dark .icon-bell {
+  background: #2D1F14;
+  color: #C8A04C;
+}
+
+.page.dark .icon-theme {
+  background: #221830;
+  color: #B89CE0;
+}
+
+.page.dark .icon-info {
+  background: #262220;
+  color: #B8B0A8;
+}

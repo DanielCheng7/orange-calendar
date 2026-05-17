@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "reminder-card": "/components/reminder-card/reminder-card"
+  },
+  "navigationBarTitleText": "提醒详情"
+}

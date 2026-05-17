@@ -1,0 +1,18 @@
+<view class="calendar">
+  <view class="week-header">
+    <view class="week-day" wx:for="{{weekDays}}" wx:key="index">{{item}}</view>
+  </view>
+  <view class="day-grid">
+    <view
+      class="day-cell {{item.isToday ? 'today' : ''}} {{item.isSelected ? 'selected' : ''}} {{item.isCurrentMonth ? '' : 'other-month'}}"
+      wx:for="{{grid}}"
+      wx:key="date"
+      data-date="{{item.date}}"
+      data-day="{{item.day}}"
+      catchtap="onDayTap"
+    >
+      <text class="day-number">{{item.day}}</text>
+      <view class="dot {{item.hasReminder ? 'active' : ''}}"></view>
+    </view>
+  </view>
+</view>

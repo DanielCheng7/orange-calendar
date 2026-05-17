@@ -1,0 +1,106 @@
+.card {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  margin: 0 var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal), transform var(--transition-fast);
+}
+
+.card:active {
+  box-shadow: var(--shadow-md);
+}
+
+.tag-bar {
+  width: 6rpx;
+  height: 72rpx;
+  border-radius: 3rpx;
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.card:active .tag-bar {
+  opacity: 0.8;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6rpx;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.title.done {
+  text-decoration: line-through;
+  color: var(--color-text-tertiary);
+}
+
+.time {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-left: var(--spacing-md);
+  flex-shrink: 0;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.tag-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.repeat-badge {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  background: var(--color-bg);
+  padding: 2rpx 14rpx;
+  border-radius: var(--radius-sm);
+}
+
+.check-area {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: var(--spacing-md);
+  /* Extend touch target beyond visual bounds */
+  padding: 10rpx;
+}
+
+.check-area:active .check-icon {
+  transform: scale(0.85);
+}
+
+.check-icon {
+  font-size: 44rpx;
+  color: var(--color-text-placeholder);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.check-icon.checked {
+  color: var(--color-checked);
+}

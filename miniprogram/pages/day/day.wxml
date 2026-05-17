@@ -1,0 +1,54 @@
+<view class="page {{_isDark ? 'dark' : ''}}">
+  <view class="date-header">
+    <text class="date-title">{{dateDisplay}}</text>
+    <text class="date-subtitle">{{dateStr}}</text>
+  </view>
+
+  <view class="reminder-list">
+    <!-- Pending Section -->
+    <view class="section-label">
+      <text class="label-dot pending-dot"></text>
+      <text>待完成</text>
+      <text class="label-count">{{pending.length}}</text>
+    </view>
+
+    <block wx:if="{{pending.length === 0}}">
+      <view class="empty-state-wrap">
+        <view class="empty-icon-large">✓</view>
+        <text class="empty-text-main">没有待办事项</text>
+        <text class="empty-text-sub">点击日历上的 + 号创建新提醒</text>
+      </view>
+    </block>
+
+    <reminder-card
+      wx:for="{{pending}}"
+      wx:key="_id"
+      item="{{item}}"
+      tagName="{{item._tagName}}"
+      tagColor="{{item._tagColor}}"
+      bind:tap="onEditReminder"
+      bind:toggledone="onToggleDone"
+    />
+
+    <!-- Done Section -->
+    <view class="section-label done-label" wx:if="{{done.length > 0}}">
+      <text class="label-dot done-dot"></text>
+      <text>已完成</text>
+      <text class="label-count">{{done.length}}</text>
+    </view>
+
+    <reminder-card
+      wx:for="{{done}}"
+      wx:key="_id"
+      item="{{item}}"
+      tagName="{{item._tagName}}"
+      tagColor="{{item._tagColor}}"
+      bind:tap="onEditReminder"
+      bind:toggledone="onToggleDone"
+    />
+  </view>
+
+  <view class="share-bar" wx:if="{{pending.length > 0}}">
+    <button class="btn-outline share-btn" open-type="share">分享今日安排</button>
+  </view>
+</view>
